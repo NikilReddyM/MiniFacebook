@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './common/login/login.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { RegisterComponent } from './common/register/register.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from "@angular/material/input";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { RegisterComponent } from './common/register/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatInputModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

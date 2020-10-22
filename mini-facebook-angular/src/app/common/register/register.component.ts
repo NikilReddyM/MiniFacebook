@@ -10,6 +10,7 @@ export class RegisterComponent implements OnInit {
   months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   dates = Array.from({ length: 31 }, (_, i) => i + 1)
   years = Array.from({ length: 31 }, (_, i) => i + 1)
+  genders = ["Male","Female","Other"]
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {

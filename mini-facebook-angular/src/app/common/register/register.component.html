@@ -1,46 +1,53 @@
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <input type="text" formControlName="firstName" placeholder="First Name" class="form-control">
-    </div>
-    <div class="form-group">
-        <input type="text" formControlName="lastName" placeholder="Last Name" class="form-control">
-    </div>
-    <div class="form-group">
-        <input type="text" formControlName="email" placeholder="Email" class="form-control">
-    </div>
-    <div class="form-group">
-        <input type="text" formControlName="password" placeholder=" New Password" class="form-control">
-    </div>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="example-form">
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="First name" formControlName="firstName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Last name" formControlName="lastName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput type="email" placeholder="Email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput type="password" placeholder="New password" formControlName="password">
+    </mat-form-field>
+
     <div formGroupName="birthday">
-        <div class="form-group">
-            <select formControlName="month" (change)="changeBirthMonth($event)">
-                <option *ngFor="let month of months" [ngValue]="month">{{month}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <select formControlName="date">
-                <option *ngFor="let date of dates" [ngValue]="date" >{{date}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <select formControlName="year">
-                <option *ngFor="let year of years" [ngValue]="year" >{{year}}</option>
-            </select>
-        </div>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Month</mat-label>
+            <mat-select formControlName="month">
+                <mat-option></mat-option>
+                <mat-option *ngFor="let month of months" [value]="month">{{month}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Date</mat-label>
+            <mat-select formControlName="date">
+                <mat-option></mat-option>
+                <mat-option *ngFor="let date of dates" [value]="date">{{date}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Year</mat-label>
+            <mat-select formControlName="year">
+                <mat-option></mat-option>
+                <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
     </div>
-    <div class="form-group">
-        <label>
-            <input type="radio" value="Male" formControlName="gender">
-            <span>male</span>
-        </label>
-        <label>
-            <input type="radio" value="Female" formControlName="gender">
-            <span>female</span>
-        </label>
-        <label>
-            <input type="radio" value="Other" formControlName="gender">
-            <span>other</span>
-        </label>
+
+    <mat-radio-group formControlName="gender" aria-label="Select an option">
+        <mat-radio-button *ngFor="let gender_ of genders" [value]="gender_">{{gender_}}</mat-radio-button>
+    </mat-radio-group>
+
+    <div class="example-button-row">
+        <button mat-raised-button type="submit">Sign Up</button>
     </div>
-    <button type="submit">Sign Up</button>
 </form>
