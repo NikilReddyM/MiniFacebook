@@ -1,0 +1,46 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <input type="text" formControlName="firstName" placeholder="First Name" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="lastName" placeholder="Last Name" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="email" placeholder="Email" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="password" placeholder=" New Password" class="form-control">
+    </div>
+    <div formGroupName="birthday">
+        <div class="form-group">
+            <select formControlName="month" (change)="changeBirthMonth($event)">
+                <option *ngFor="let month of months" [ngValue]="month">{{month}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select formControlName="date">
+                <option *ngFor="let date of dates" [ngValue]="date" >{{date}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select formControlName="year">
+                <option *ngFor="let year of years" [ngValue]="year" >{{year}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>
+            <input type="radio" value="Male" formControlName="gender">
+            <span>male</span>
+        </label>
+        <label>
+            <input type="radio" value="Female" formControlName="gender">
+            <span>female</span>
+        </label>
+        <label>
+            <input type="radio" value="Other" formControlName="gender">
+            <span>other</span>
+        </label>
+    </div>
+    <button type="submit">Sign Up</button>
+</form>
