@@ -9,6 +9,8 @@ import { RegisterComponent } from './common/register/register.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from "@angular/material/input";
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -25,9 +27,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatRadioModule,
     MatSelectModule,
     MatInputModule,
+    MatDialogModule,
+    MatIconModule,
     BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    RegisterComponent
+  ]
 })
 export class AppModule { }

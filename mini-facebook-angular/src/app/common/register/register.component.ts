@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from "@angular/forms";
-
+import { MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,8 +10,8 @@ export class RegisterComponent implements OnInit {
   months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   dates = Array.from({ length: 31 }, (_, i) => i + 1)
   years = Array.from({ length: 31 }, (_, i) => i + 1)
-  genders = ["Male","Female","Other"]
-  constructor(private fb: FormBuilder) { }
+  genders = ["Male", "Female", "Other"]
+  constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<RegisterComponent>) { }
 
   ngOnInit(): void {
   }
@@ -32,11 +32,11 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     console.log(this.registerForm)
+    this.closeDialog()
   }
-  changeBirthMonth(event) {
-    // this.month.setValue(event.target.value, { onlySelf: true })
-    // console.log(event)
-    // this.registerForm.patchValue({month:"Mar"})
-    // console.log(this.registerForm.value)
+  closeDialog() {
+    this.dialogRef.close()
+    
   }
+
 }
